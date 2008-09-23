@@ -1,0 +1,9 @@
+C:\Users\Greg\Documents\Visual Studio 2008\Projects\WinnGuestbook\WinnGuestbook\bin\WinnGuestbook.dll
+C:\Users\Greg\Documents\Visual Studio 2008\Projects\WinnGuestbook\WinnGuestbook\bin\WinnGuestbook.pdb
+C:\Users\Greg\Documents\Visual Studio 2008\Projects\WinnGuestbook\WinnGuestbook\bin\WinnGuestbook.xml
+C:\Users\Greg\Documents\Visual Studio 2008\Projects\WinnGuestbook\WinnGuestbook\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Greg\Documents\Visual Studio 2008\Projects\WinnGuestbook\WinnGuestbook\obj\Debug\WinnGuestbook.Resources.resources
+C:\Users\Greg\Documents\Visual Studio 2008\Projects\WinnGuestbook\WinnGuestbook\obj\Debug\WinnGuestbook.vbproj.GenerateResource.Cache
+C:\Users\Greg\Documents\Visual Studio 2008\Projects\WinnGuestbook\WinnGuestbook\obj\Debug\WinnGuestbook.dll
+C:\Users\Greg\Documents\Visual Studio 2008\Projects\WinnGuestbook\WinnGuestbook\obj\Debug\WinnGuestbook.xml
+C:\Users\Greg\Documents\Visual Studio 2008\Projects\WinnGuestbook\WinnGuestbook\obj\Debug\WinnGuestbook.pdb
