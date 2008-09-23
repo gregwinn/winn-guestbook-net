@@ -25,11 +25,11 @@ Partial Public Class _Default2
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''LoginStatus1 control.
+    '''Header control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LoginStatus1 As Global.System.Web.UI.WebControls.LoginStatus
+    Protected WithEvents Header As Global.WinnGuestbook.header
 End Class
