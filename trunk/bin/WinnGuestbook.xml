@@ -6,7 +6,31 @@ WinnGuestbook
 </name>
 </assembly>
 <members>
-<member name="F:WinnGuestbook.header.HyperLink1">
+<member name="F:WinnGuestbook.admin.head">
+	<summary>
+head control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:WinnGuestbook.admin.form1">
+	<summary>
+form1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:WinnGuestbook.admin.LogoTitle">
+	<summary>
+LogoTitle control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:WinnGuestbook.admin.HyperLink1">
 	<summary>
 HyperLink1 control.
 </summary>
@@ -14,7 +38,7 @@ HyperLink1 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:WinnGuestbook.header.HyperLink2">
+</member><member name="F:WinnGuestbook.admin.HyperLink2">
 	<summary>
 HyperLink2 control.
 </summary>
@@ -22,17 +46,33 @@ HyperLink2 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:WinnGuestbook.header.LoginStatus1">
+</member><member name="F:WinnGuestbook.admin.HyperLink3">
 	<summary>
-LoginStatus1 control.
+HyperLink3 control.
 </summary>
 	<remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
-</member><member name="F:WinnGuestbook.WebForm1.form1">
+</member><member name="F:WinnGuestbook.admin.SubNav">
 	<summary>
-form1 control.
+SubNav control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:WinnGuestbook.admin.HyperLink4">
+	<summary>
+HyperLink4 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:WinnGuestbook.admin.LoginStatus1">
+	<summary>
+LoginStatus1 control.
 </summary>
 	<remarks>
 Auto-generated field.
@@ -82,22 +122,6 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:WinnGuestbook._Default1.form1">
 	<summary>
 form1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:WinnGuestbook._Default2.form1">
-	<summary>
-form1 control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:WinnGuestbook._Default2.Header">
-	<summary>
-Header control.
 </summary>
 	<remarks>
 Auto-generated field.

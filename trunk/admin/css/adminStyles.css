@@ -1,0 +1,88 @@
+﻿body 
+{
+    font-family:Arial, Sans-Serif;
+    margin:0;
+    padding:0;
+}
+#div_LogoTitle_wrapper  
+{
+    background:#666666;
+    border-bottom:2px solid #333;
+    padding:0 0 0 20px;
+}
+#div_LogoTitle_wrapper  h1  
+{
+    margin:0;
+    padding:10px 0;
+}
+#div_LogoTitle_wrapper ul#mainNav   
+{
+    float:left;
+    width:400px;
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+#div_LogoTitle_wrapper ul#mainNav li    
+{
+    float:left;
+    margin:0 5px;
+    background:#333;
+    color:#fff;
+    font-weight:bold;
+    padding:5px 8px;
+}
+#div_LogoTitle_wrapper ul#mainNav li:hover  
+{
+    background:#5d5d5d;
+}
+#div_LogoTitle_wrapper ul#mainNav li a  
+{
+    color:#fff;
+    text-decoration:none;
+}
+
+#div_SubNav_wrapper     
+{
+    padding:0 0 0 30px;
+    background:#e1e1e1;
+}
+#div_SubNav_wrapper ul  
+{
+    list-style:none;
+    margin:0;
+    padding:0;
+    float:left;
+}
+#div_SubNav_wrapper ul li   
+{
+    float:left;
+    margin:5px;
+    padding:0;
+    font-size:.8em;
+}
+#div_SubNav_wrapper ul li a 
+{
+    text-decoration:none;
+    color:#333;
+}
+#div_SubNav_wrapper ul li a:hover   
+{
+    text-decoration:underline;
+}
+#div_SubNav_wrapper ul li#logOut_link:hover 
+{
+    background:#ff9999;
+}
+
+#div_footer_wrapper 
+{
+    border-top:2px solid #333;
+    padding:5px 0 0 0;
+    margin:10px 0;
+}
+
+.clear  
+{
+    clear:both;
+}

@@ -1,0 +1,47 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="admin.master.vb" Inherits="WinnGuestbook.admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    
+        <asp:ContentPlaceHolder ID="LogoTitle" runat="server">
+        <div id="div_LogoTitle_wrapper">
+            <h1>Winn Guestbook [.NET]</h1>
+            <ul id="mainNav">
+                <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/admin/Default.aspx">Dashboard</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/admin/Default.aspx">Active</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/admin/Default.aspx">Archived</asp:HyperLink></li>
+            </ul>
+            <div class="clear"></div>
+        </div>      
+        </asp:ContentPlaceHolder>
+        
+        
+        <asp:ContentPlaceHolder ID="SubNav" runat="server">
+            <div id="div_SubNav_wrapper">
+                <ul>
+                    <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/admin/Default.aspx">Settings</asp:HyperLink></li>
+                    <li id="logOut_link"><asp:LoginStatus ID="LoginStatus1" runat="server" /></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </asp:ContentPlaceHolder>
+        
+        
+        <asp:ContentPlaceHolder ID="Footer" runat="server">
+            <div id="div_footer_wrapper">
+                <p>&copy; Copyright [DATE] Winn Guestbook .NET, a product of <a href="http://winn.ws">Winn.ws</a></p>
+            </div>
+        </asp:ContentPlaceHolder>
+        
+    </form>
+</body>
+</html>
