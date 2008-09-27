@@ -1,4 +1,4 @@
-﻿Public Partial Class _Default1
+﻿Public Partial Class WebForm1
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
