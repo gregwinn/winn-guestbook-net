@@ -1,0 +1,119 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="GBmain.master.vb" Inherits="WinnGuestbook.GBmain" %>
+
+<%@ Register assembly="System.Web.DynamicData, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.DynamicData" tagprefix="cc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            
+            <div>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:WinnGuestbook_dbConnectionString %>" 
+                    DeleteCommand="DELETE FROM [rev1_posts] WHERE [id] = @id" 
+                    InsertCommand="INSERT INTO [rev1_posts] ([subject], [email], [body], [status], [created_at]) VALUES (@subject, @email, @body, 1, getdate())" 
+                    SelectCommand="SELECT id, subject, email, body, status, created_at FROM rev1_posts WHERE (status = 1)" 
+                    
+                    
+                    UpdateCommand="UPDATE [rev1_posts] SET [subject] = @subject, [email] = @email, [body] = @body, [status] = @status, [created_at] = @created_at WHERE [id] = @id">
+                    <DeleteParameters>
+                        <asp:Parameter Name="id" Type="Int32" />
+                    </DeleteParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="subject" Type="String" />
+                        <asp:Parameter Name="email" Type="String" />
+                        <asp:Parameter Name="body" Type="String" />
+                        <asp:Parameter Name="status" Type="Int32" />
+                        <asp:Parameter Name="created_at" Type="DateTime" />
+                        <asp:Parameter Name="id" Type="Int32" />
+                    </UpdateParameters>
+                    <InsertParameters>
+                        <asp:ControlParameter Name="subject" Type="String" ControlID="subject_t" />
+                        <asp:ControlParameter Name="email" Type="String" ControlID="email_t" />
+                        <asp:FormParameter Name="body" FormField="S1" />
+                    </InsertParameters>
+                </asp:SqlDataSource>
+                <ul>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ErrorMessage="<li>Sorry, Subject is needed to post this message.</li>" 
+                        ControlToValidate="subject_t" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ControlToValidate="email_t" Display="Dynamic" 
+                        ErrorMessage="<li>Sorry, we need your email address to post this.</li>"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                        ControlToValidate="email_t" Display="Dynamic" 
+                        ErrorMessage="<li>Sorry, we need a valid email address.</li>" 
+                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                </ul>
+                <table>
+                    <tr>
+                        <td><p>Subject:</p></td>
+                        <td>
+                            <asp:TextBox ID="subject_t" runat="server" />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><p>Email:</p></td>
+                        <td>
+                            <asp:TextBox ID="email_t" runat="server" />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><p>Message:</p></td>
+                        <td>
+                            <textarea id="body" name="S1"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <asp:Button ID="Button1" OnClick="Button1_Click" runat="server" Text="Send" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="ShowPosts" runat="server">
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:WinnGuestbook_dbConnectionString %>" 
+                SelectCommand="SELECT id, subject, email, body, status, created_at FROM rev1_posts WHERE (status = 1) ORDER BY created_at DESC"></asp:SqlDataSource>
+            <asp:DataList ID="DataList1" runat="server" DataKeyField="id" 
+                DataSourceID="SqlDataSource2">
+                <ItemTemplate>
+                    id:
+                    <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
+                    <br />
+                    subject:
+                    <asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' />
+                    <br />
+                    email:
+                    <asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' />
+                    <br />
+                    body:
+                    <asp:Label ID="bodyLabel" runat="server" Text='<%# Eval("body") %>' />
+                    <br />
+                    status:
+                    <asp:Label ID="statusLabel" runat="server" Text='<%# Eval("status") %>' />
+                    <br />
+                    created_at:
+                    <asp:Label ID="created_atLabel" runat="server" 
+                        Text='<%# Eval("created_at") %>' />
+                    <br />
+                    <br />
+                </ItemTemplate>
+            </asp:DataList>
+        </asp:ContentPlaceHolder>
+        
+    </div>
+    </form>
+</body>
+</html>
