@@ -9,17 +9,22 @@
     <title>Untitled Page</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+
+    <script src="../js/prototype.js" type="text/javascript"></script>
+    <script src="../js/scriptaculous.js" type="text/javascript"></script>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div class="MainView_wrapper">
+        <h1><%=WinnGuestbook.Config.SiteName%></h1>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             
             <div>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                     ConnectionString="<%$ ConnectionStrings:WinnGuestbook_dbConnectionString %>" 
                     DeleteCommand="DELETE FROM [rev1_posts] WHERE [id] = @id" 
-                    InsertCommand="INSERT INTO [rev1_posts] ([subject], [email], [body], [status], [created_at]) VALUES (@subject, @email, @body, 1, getdate())" 
+                    InsertCommand="INSERT INTO [rev1_posts] ([subject], [email], [body], [status], [created_at]) VALUES (@subject, @email, @body, 2, getdate())" 
                     SelectCommand="SELECT id, subject, email, body, status, created_at FROM rev1_posts WHERE (status = 1)" 
                     
                     
@@ -53,7 +58,8 @@
                         ErrorMessage="<li>Sorry, we need a valid email address.</li>" 
                         ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </ul>
-                <table>
+                <p><strong>Ready to make a post? <a href="javascript://" onclick="new Effect.toggle('PostToForm');">Open the form.</a></strong></p>
+                <table style="display:none;" id="PostToForm">
                     <tr>
                         <td><p>Subject:</p></td>
                         <td>
@@ -76,41 +82,50 @@
                     <tr>
                         <td></td>
                         <td>
-                            <asp:Button ID="Button1" OnClick="Button1_Click" runat="server" Text="Send" />
+                            <asp:Button ID="Button1" OnClick="Button1_Click" runat="server" Text="Send" 
+                                PostBackUrl="~/Default.aspx" />
                         </td>
                     </tr>
                 </table>
             </div>
         </asp:ContentPlaceHolder>
+        
         <asp:ContentPlaceHolder ID="ShowPosts" runat="server">
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
                 ConnectionString="<%$ ConnectionStrings:WinnGuestbook_dbConnectionString %>" 
                 SelectCommand="SELECT id, subject, email, body, status, created_at FROM rev1_posts WHERE (status = 1) ORDER BY created_at DESC"></asp:SqlDataSource>
             <asp:DataList ID="DataList1" runat="server" DataKeyField="id" 
                 DataSourceID="SqlDataSource2">
-                <ItemTemplate>
-                    id:
-                    <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
-                    <br />
-                    subject:
-                    <asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' />
-                    <br />
-                    email:
-                    <asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' />
-                    <br />
-                    body:
-                    <asp:Label ID="bodyLabel" runat="server" Text='<%# Eval("body") %>' />
-                    <br />
-                    status:
-                    <asp:Label ID="statusLabel" runat="server" Text='<%# Eval("status") %>' />
-                    <br />
-                    created_at:
-                    <asp:Label ID="created_atLabel" runat="server" 
-                        Text='<%# Eval("created_at") %>' />
-                    <br />
-                    <br />
-                </ItemTemplate>
+                
+                    <ItemTemplate>
+                        <h3><asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' /></h3>
+                            
+                        <p><small><asp:Label ID="created_atLabel" runat="server" 
+                            Text='<%# Eval("created_at") %>' /> | <a onclick="new Effect.toggle('Post_content_<%# Eval("id") %>')" href="javascript://">toggle</a></small></p>
+                        <div id="Post_content_<%# Eval("id") %>">
+                            <p><asp:Label ID="bodyLabel" runat="server" Text='<%# Eval("body") %>' /></p>
+                        </div>
+                        <hr />
+                    </ItemTemplate>
+                
             </asp:DataList>
+        </asp:ContentPlaceHolder>
+        
+        <asp:ContentPlaceHolder ID="FooterBase" runat="server">
+            <div id="div_FooterBase_wrapper">
+                <p>Winn Guestbook [.NET] <%=WinnGuestbook.Core.LongVersion%></p>
+            </div>
+            <% If WinnGuestbook.Core.GoogleAnalyticsDisplay() = "true" Then%>
+            
+                <script type="text/javascript">
+                    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+                    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+                <script type="text/javascript">
+                    var pageTracker = _gat._getTracker('<%=WinnGuestbook.Config.GoogleAnalytics %>');
+                    pageTracker._trackPageview();
+                </script>
+            <%End If%>
         </asp:ContentPlaceHolder>
         
     </div>

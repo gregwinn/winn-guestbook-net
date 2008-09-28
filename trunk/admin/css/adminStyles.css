@@ -4,6 +4,18 @@
     margin:0;
     padding:0;
 }
+p   
+{
+    margin:0;
+    padding:0;
+}
+h4  
+{
+    margin:0;
+    padding:0;
+    color:#333;
+    background:#eeeeee;
+}
 #div_LogoTitle_wrapper  
 {
     background:#666666;
@@ -13,7 +25,11 @@
 #div_LogoTitle_wrapper  h1  
 {
     margin:0;
-    padding:10px 0;
+    padding:10px 0 0 0;
+}
+#div_LogoTitle_wrapper p    
+{
+    margin:0 0 8px 0;
 }
 #div_LogoTitle_wrapper ul#mainNav   
 {
@@ -74,6 +90,34 @@
 {
     background:#ff9999;
 }
+#AdminArea_Content  
+{
+    padding:0 30px;
+}
+table#ctl00_ActivePosts_DataList1   
+{
+    width:100%;
+}
+table#ctl00_ActivePosts_DataList1 .Active_Posts_wrapper   
+{
+    border-bottom:2px solid #ccc;
+    padding:8px;
+    margin:0 0 10px 0;
+}
+table#ctl00_ActivePosts_DataList1 .Active_Posts_wrapper ul  
+{
+    list-style:none;
+    margin:10px 0 0 0;
+    padding:0;
+    float:left;
+}
+table#ctl00_ActivePosts_DataList1 .Active_Posts_wrapper ul li   
+{
+    float:left;
+    margin:0;
+    padding:0;
+}
+table#ctl00_ActivePosts_DataList1 .Active_Posts_wrapper ul li a img { border:none; }
 
 #div_footer_wrapper 
 {
