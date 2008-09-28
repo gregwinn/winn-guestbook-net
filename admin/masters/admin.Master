@@ -8,16 +8,20 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
         
     </asp:ContentPlaceHolder>
+    
+    <link href="../css/adminStyles.css" rel="stylesheet" type="text/css" />
+    
 </head>
 <body>
     <form id="form1" runat="server">
     
         <asp:ContentPlaceHolder ID="LogoTitle" runat="server">
         <div id="div_LogoTitle_wrapper">
-            <h1>Winn Guestbook [.NET]</h1>
+            <h1>Winn Guestbook <%=WinnGuestbook.Core.VersionIn%></h1>
+            <p><%=WinnGuestbook.Config.SiteName%></p>
             <ul id="mainNav">
                 <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/admin/Default.aspx">Dashboard</asp:HyperLink></li>
-                <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/admin/Default.aspx">Active</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/admin/Active.aspx">Active</asp:HyperLink></li>
                 <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/admin/Default.aspx">Archived</asp:HyperLink></li>
             </ul>
             <div class="clear"></div>
@@ -35,6 +39,54 @@
             </div>
         </asp:ContentPlaceHolder>
         
+    <asp:ContentPlaceHolder ID="ActivePosts" runat="server">
+    <div id="AdminArea_Content">
+        <h2>Active Posts</h2>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:WinnGuestbook_dbConnectionString %>" 
+            SelectCommand="SELECT rev1_posts.*, status AS Expr1 FROM rev1_posts WHERE (status = 1) ORDER BY created_at DESC"></asp:SqlDataSource>
+        <asp:DataList ID="DataList1" runat="server" DataKeyField="id" 
+            DataSourceID="SqlDataSource1">
+            <ItemTemplate>
+                <div class="Active_Posts_wrapper" id="Active_Post_<%# Eval("id") %>">
+                    <h4><asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' /> | <small><asp:Label ID="created_atLabel" runat="server" Text='<%# Eval("created_at") %>' /></small></h4>
+                    <p><small><asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' /></small></p>
+                    <p><asp:Label ID="bodyLabel" runat="server" Text='<%# Eval("body") %>' /></p>
+                    <ul>
+                        <li><a href="javascript://" title="Delete"><img alt="Delete" src="img/delete_img.gif" /></a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </ItemTemplate>
+        </asp:DataList>
+    </div>
+    </asp:ContentPlaceHolder>
+    
+    
+    <asp:ContentPlaceHolder ID="PostsOnHold" runat="server">
+        <div id="AdminArea_Content">
+        <h2>Pending Approval</h2>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:WinnGuestbook_dbConnectionString %>" 
+            SelectCommand="SELECT rev1_posts.*, status AS Expr1 FROM rev1_posts WHERE (status = 2) ORDER BY created_at DESC"></asp:SqlDataSource>
+        <asp:DataList ID="DataList2" runat="server" DataKeyField="id" 
+            DataSourceID="SqlDataSource2">
+            <ItemTemplate>
+                <div class="Active_Posts_wrapper" id="Active_Post_<%# Eval("id") %>">
+                    <h4><asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' /> | <small><asp:Label ID="created_atLabel" runat="server" Text='<%# Eval("created_at") %>' /></small></h4>
+                    <p><small><asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' /></small></p>
+                    <p><asp:Label ID="bodyLabel" runat="server" Text='<%# Eval("body") %>' /></p>
+                    <ul>
+                        <li><a href="javascript://" title="Delete"><img alt="Delete" src="img/delete_img.gif" /></a></li>
+                        <li><a href="javascript://"><img src="img/approve_img.gif" /></a></li>
+                        <li><a href="javascript://"><img src="img/flagspam_img.gif" /></a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </ItemTemplate>
+        </asp:DataList>
+    </div>
+    </asp:ContentPlaceHolder>
         
         <asp:ContentPlaceHolder ID="Footer" runat="server">
             <div id="div_footer_wrapper">

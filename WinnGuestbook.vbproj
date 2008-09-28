@@ -92,6 +92,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\common\Config.vb" />
+    <Compile Include="admin\common\Core.vb">
+    </Compile>
     <Compile Include="admin\masters\admin.Master.designer.vb">
       <DependentUpon>admin.Master</DependentUpon>
     </Compile>
@@ -104,6 +107,13 @@
     </Compile>
     <Compile Include="admin\Default.aspx.vb">
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="admin\Active.aspx.designer.vb">
+      <DependentUpon>Active.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Active.aspx.vb">
+      <DependentUpon>Active.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.vb">
@@ -149,7 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <Generator>PublicVbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
@@ -157,8 +167,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\css\adminStyles.css" />
+    <Content Include="admin\img\approve_img.gif" />
+    <Content Include="admin\img\delete_img.gif" />
+    <Content Include="admin\img\flagspam_img.gif" />
     <Content Include="admin\masters\admin.Master" />
     <Content Include="admin\Default.aspx" />
+    <Content Include="admin\Active.aspx" />
+    <Content Include="js\builder.js" />
+    <Content Include="js\controls.js" />
+    <Content Include="js\dragdrop.js" />
+    <Content Include="js\effects.js" />
+    <Content Include="js\prototype.js" />
+    <Content Include="js\scriptaculous.js" />
+    <Content Include="js\slider.js" />
+    <Content Include="js\sound.js" />
     <Content Include="masters\GBmain.Master" />
     <Content Include="Default.aspx" />
     <None Include="My Project\Application.myapp">
@@ -172,7 +194,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="admin\common\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />

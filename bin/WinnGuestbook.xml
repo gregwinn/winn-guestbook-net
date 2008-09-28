@@ -94,6 +94,79 @@ LoginStatus1 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:WinnGuestbook.admin.ActivePosts">
+	<summary>
+ActivePosts control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:WinnGuestbook.admin.SqlDataSource1">
+	<summary>
+SqlDataSource1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:WinnGuestbook.admin.DataList1">
+	<summary>
+DataList1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:WinnGuestbook.admin.PostsOnHold">
+	<summary>
+PostsOnHold control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:WinnGuestbook.admin.SqlDataSource2">
+	<summary>
+SqlDataSource2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:WinnGuestbook.admin.DataList2">
+	<summary>
+DataList2 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:WinnGuestbook.admin.Footer">
+	<summary>
+Footer control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="P:WinnGuestbook.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:WinnGuestbook.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:WinnGuestbook.My.Resources.Resources.SsystemShortVersion">
+	<summary>
+  Looks up a localized string similar to 1.0.1.
+</summary>
+</member><member name="T:WinnGuestbook.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
 </member><member name="P:WinnGuestbook.My.MyWebExtension.Computer">
 	<summary>
  Returns information about the host computer.
@@ -218,6 +291,14 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:WinnGuestbook.GBmain.DataList1">
 	<summary>
 DataList1 control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:WinnGuestbook.GBmain.FooterBase">
+	<summary>
+FooterBase control.
 </summary>
 	<remarks>
 Auto-generated field.

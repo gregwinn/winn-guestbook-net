@@ -3,5 +3,6 @@
 <asp:Content ContentPlaceHolderID="head" ID="content1" runat="server">
     <link href="css/adminStyles.css" rel="stylesheet" type="text/css" />
 </asp:Content>
+<asp:Content ContentPlaceHolderID="ActivePosts" ID="ActivePosts1" runat="server"></asp:Content>
 
 
