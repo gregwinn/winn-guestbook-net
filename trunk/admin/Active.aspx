@@ -2,4 +2,5 @@
     title="Untitled Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+<asp:Content ID="PostsOnHold1" ContentPlaceHolderID="PostsOnHold" runat="server"></asp:Content>
 
