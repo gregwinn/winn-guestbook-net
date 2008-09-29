@@ -1,8 +1,9 @@
 ﻿Public Partial Class admin
     Inherits System.Web.UI.MasterPage
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Protected Sub DataList2_ItemCommand(ByVal source As Object, ByVal e As System.Web.UI.WebControls.DataListCommandEventArgs) Handles DataList2.ItemCommand
+        If e.CommandName = "ApproveThisPost" Then
 
+        End If
     End Sub
-
 End Class
