@@ -27,6 +27,6 @@ End Class
  * Visit the admin area (http://installPath/guestbook/admin/)
 {{{
 Login: admin
-Password: Owner@
+Password: Owner@1
 }}}
  * Once logged in you now can use the guestbook!
