@@ -97,6 +97,15 @@ Partial Public Class admin
     Protected WithEvents LoginStatus1 As Global.System.Web.UI.WebControls.LoginStatus
 
     '''<summary>
+    '''LoginName1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LoginName1 As Global.System.Web.UI.WebControls.LoginName
+
+    '''<summary>
     '''ActivePosts control.
     '''</summary>
     '''<remarks>
@@ -149,6 +158,33 @@ Partial Public Class admin
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DataList2 As Global.System.Web.UI.WebControls.DataList
+
+    '''<summary>
+    '''ArchivedPosts control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ArchivedPosts As Global.System.Web.UI.WebControls.ContentPlaceHolder
+
+    '''<summary>
+    '''SqlDataSource3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SqlDataSource3 As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''DataList3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DataList3 As Global.System.Web.UI.WebControls.DataList
 
     '''<summary>
     '''Footer control.

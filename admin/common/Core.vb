@@ -4,6 +4,7 @@
     '=======================================================================
     Public Const VersionIn = "1.0"
     Public Const LongVersion = "1.0.1"
+    Public Const QAVal = "B37"
 
     Public Shared Function GoogleAnalyticsDisplay()
         If WinnGuestbook.Config.GoogleAnalytics = "none" Then
