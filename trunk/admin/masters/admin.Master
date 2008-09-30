@@ -10,6 +10,9 @@
     </asp:ContentPlaceHolder>
     
     <link href="../css/adminStyles.css" rel="stylesheet" type="text/css" />
+    
+    <script src="../js/prototype.js" type="text/javascript"></script>
+    <script src="../js/scriptaculous.js" type="text/javascript"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -21,7 +24,7 @@
             <ul id="mainNav">
                 <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/admin/Default.aspx">Dashboard</asp:HyperLink></li>
                 <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/admin/Active.aspx">Active</asp:HyperLink></li>
-                <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/admin/Default.aspx">Archived</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/admin/Archived.aspx">Archived</asp:HyperLink></li>
             </ul>
             <div class="clear"></div>
         </div>      
@@ -31,8 +34,8 @@
         <asp:ContentPlaceHolder ID="SubNav" runat="server">
             <div id="div_SubNav_wrapper">
                 <ul>
-                    <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/admin/Default.aspx">Settings</asp:HyperLink></li>
-                    <li id="logOut_link"><asp:LoginStatus ID="LoginStatus1" runat="server" /></li>
+                    <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/admin/Settings.aspx">Settings</asp:HyperLink></li>
+                    <li id="logOut_link"><asp:LoginStatus ID="LoginStatus1" runat="server" /> (<asp:LoginName ID="LoginName1" runat="server" />)</li>
                 </ul>
                 <div class="clear"></div>
             </div>
@@ -43,16 +46,17 @@
         <h2>Active Posts</h2>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:WinnGuestbook_dbConnectionString %>" 
-            SelectCommand="SELECT rev1_posts.*, status AS Expr1 FROM rev1_posts WHERE (status = 1) ORDER BY created_at DESC"></asp:SqlDataSource>
+            SelectCommand="SELECT rev1_posts.*, status AS Expr1 FROM rev1_posts WHERE (status = 2) ORDER BY created_at DESC"></asp:SqlDataSource>
         <asp:DataList ID="DataList1" runat="server" DataKeyField="id" 
             DataSourceID="SqlDataSource1">
             <ItemTemplate>
                 <div class="Active_Posts_wrapper" id="Active_Post_<%# Eval("id") %>">
                     <h4><asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' /> | <small><asp:Label ID="created_atLabel" runat="server" Text='<%# Eval("created_at") %>' /></small></h4>
-                    <p><small><asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' /></small></p>
+                    <p><small>From: <asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' /></small></p>
                     <p><asp:Label ID="bodyLabel" runat="server" Text='<%# Eval("body") %>' /></p>
                     <ul>
-                        <li><a href="javascript://" title="Delete"><img alt="Delete" src="img/delete_img.gif" /></a></li>
+                        <li><asp:LinkButton ID="LinkButton2" runat="server" ToolTip=<%#"Delete This: " & Eval("subject") %> CommandName="DeleteThisPost" CommandArgument=<%# Eval("id") %>><img alt="Delete" src="img/delete_img.gif" /></asp:LinkButton></li>
+                        <li><asp:LinkButton Text="[Archive]" ID="LinkButton3" runat="server" ToolTip=<%#"Archive This: " & Eval("subject") %> CommandName="ArchiveThisPost" CommandArgument=<%# Eval("id") %>></asp:LinkButton></li>
                     </ul>
                     <div class="clear"></div>
                 </div>
@@ -74,21 +78,51 @@
                 <ItemTemplate>
                     <div class="Active_Posts_wrapper" id="Active_Post_<%# Eval("id") %>">
                     <h4><asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' /> | <small><asp:Label ID="created_atLabel" runat="server" Text='<%# Eval("created_at") %>' /></small></h4>
-                    <p><small><asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' /></small></p>
+                    <p><small>From: <asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' /></small></p>
                     <p><asp:Label ID="bodyLabel" runat="server" Text='<%# Eval("body") %>' /></p>
                     <ul>
-                        <li><a href="javascript://" title="Delete"><img alt="Delete" src="img/delete_img.gif" /></a></li>
+                        <li><asp:LinkButton ID="LinkButton1" runat="server" ToolTip=<%#"Delete This: " & Eval("subject") %> CommandName="DeleteThisPost" CommandArgument=<%# Eval("id") %>><img alt="Delete" src="img/delete_img.gif" /></asp:LinkButton></li>
+                        <li onclick="new Effect.Fade('Active_Post_<%# Eval("id") %>');"><asp:LinkButton runat="server" ToolTip=<%#"Approve This: " & Eval("subject") %> CommandName="ApproveThisPost" CommandArgument=<%# Eval("id") %>><img alt="Approve" src="img/approve_img.gif" /></asp:LinkButton></li>
                     </ul>
                     <div class="clear"></div>
-                </div>
+                    </div>
                 </ItemTemplate>
             </asp:DataList>
         </div>
     </asp:ContentPlaceHolder>
+    
+    <asp:ContentPlaceHolder ID="ArchivedPosts" runat="server">
+        
+        <div id="AdminArea_Content">
+        <h2>Archived<asp:SqlDataSource ID="SqlDataSource3" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:WinnGuestbook_dbConnectionString %>" 
+                SelectCommand="SELECT id, subject, email, body, status, created_at, status AS Expr1, created_at AS Expr2 FROM rev1_posts WHERE (status = 3) ORDER BY Expr2 DESC">
+            </asp:SqlDataSource>
+            </h2>
+            <asp:DataList ID="DataList3" runat="server" DataKeyField="id" 
+                DataSourceID="SqlDataSource3">
+                <ItemTemplate>
+                    <div class="Active_Posts_wrapper" id="Active_Post_<%# Eval("id") %>">
+                    <h4>Archive: <asp:Label ID="subjectLabel" runat="server" Text='<%# Eval("subject") %>' /> | <small><asp:Label ID="created_atLabel" runat="server" Text='<%# Eval("created_at") %>' /></small></h4>
+                    <p><small>From: <asp:Label ID="emailLabel" runat="server" Text='<%# Eval("email") %>' /></small></p>
+                    <p><asp:Label ID="bodyLabel" runat="server" Text='<%# Eval("body") %>' /></p>
+                    <ul>
+                        <li><asp:LinkButton ID="LinkButton1" runat="server" ToolTip=<%#"Delete This: " & Eval("subject") %> CommandName="DeleteThisPost" CommandArgument=<%# Eval("id") %>><img alt="Delete" src="img/delete_img.gif" /></asp:LinkButton></li>
+                        <li><asp:LinkButton ID="LinkButton2" runat="server" ToolTip="" Text="[Re-Approve]" CommandArgument=<%# Eval("id") %> CommandName="ApproveThisPost"></asp:LinkButton></li>
+                    </ul>
+                    <div class="clear"></div>
+                    </div>
+                </ItemTemplate>
+            </asp:DataList>
+        </div>
+        
+    </asp:ContentPlaceHolder>
         
         <asp:ContentPlaceHolder ID="Footer" runat="server">
+        <div class="clear"></div>
             <div id="div_footer_wrapper">
-                <p>&copy; Copyright [DATE] Winn Guestbook .NET, a product of <a href="http://winn.ws">Winn.ws</a></p>
+                <p>&copy; Copyright <%=Year(Date.Now())%> Winn Guestbook .NET, a product of <a href="http://winn.ws">Winn.ws</a></p>
+                <p>Developed in .NET 3.5 VB QA#(<%=WinnGuestbook.Core.QAVal%>) | Also Avalable in a PHP + MySQL version.</p>
             </div>
         </asp:ContentPlaceHolder>
         

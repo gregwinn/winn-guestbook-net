@@ -88,7 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\style.css" />
-    <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -116,12 +115,26 @@
       <DependentUpon>Active.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="admin\Archived.aspx.designer.vb">
+      <DependentUpon>Archived.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Archived.aspx.vb">
+      <DependentUpon>Archived.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Login.aspx.designer.vb">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.vb">
       <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="admin\Settings.aspx.designer.vb">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Settings.aspx.vb">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="masters\GBmain.Master.designer.vb">
       <DependentUpon>GBmain.Master</DependentUpon>
@@ -173,6 +186,9 @@
     <Content Include="admin\masters\admin.Master" />
     <Content Include="admin\Default.aspx" />
     <Content Include="admin\Active.aspx" />
+    <Content Include="admin\Archived.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="admin\Settings.aspx" />
     <Content Include="js\builder.js" />
     <Content Include="js\controls.js" />
     <Content Include="js\dragdrop.js" />

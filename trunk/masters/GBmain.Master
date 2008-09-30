@@ -22,13 +22,9 @@
             
             <div>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                    ConnectionString="<%$ ConnectionStrings:WinnGuestbook_dbConnectionString %>" 
-                    DeleteCommand="DELETE FROM [rev1_posts] WHERE [id] = @id" 
-                    InsertCommand="INSERT INTO [rev1_posts] ([subject], [email], [body], [status], [created_at]) VALUES (@subject, @email, @body, 2, getdate())" 
-                    SelectCommand="SELECT id, subject, email, body, status, created_at FROM rev1_posts WHERE (status = 1)" 
-                    
-                    
-                    UpdateCommand="UPDATE [rev1_posts] SET [subject] = @subject, [email] = @email, [body] = @body, [status] = @status, [created_at] = @created_at WHERE [id] = @id">
+                    ConnectionString="<%$ ConnectionStrings:WinnGuestbook_dbConnectionString %>"  
+                    InsertCommand="INSERT INTO [rev1_posts] ([subject], [email], [body], [status], [created_at]) VALUES (@subject, @email, @body, 1, getdate())" 
+                    SelectCommand="SELECT id, subject, email, body, status, created_at FROM rev1_posts WHERE (status = 2)">
                     <DeleteParameters>
                         <asp:Parameter Name="id" Type="Int32" />
                     </DeleteParameters>
@@ -93,7 +89,7 @@
         <asp:ContentPlaceHolder ID="ShowPosts" runat="server">
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
                 ConnectionString="<%$ ConnectionStrings:WinnGuestbook_dbConnectionString %>" 
-                SelectCommand="SELECT id, subject, email, body, status, created_at FROM rev1_posts WHERE (status = 1) ORDER BY created_at DESC"></asp:SqlDataSource>
+                SelectCommand="SELECT id, subject, email, body, status, created_at FROM rev1_posts WHERE (status = 2) ORDER BY created_at DESC"></asp:SqlDataSource>
             <asp:DataList ID="DataList1" runat="server" DataKeyField="id" 
                 DataSourceID="SqlDataSource2">
                 
